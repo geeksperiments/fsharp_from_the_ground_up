@@ -51,7 +51,7 @@ let summarize filePath =
         |> File.ReadAllLines
         |> Array.skip 1
         |> Array.map Student.fromString
-        |> Array.sortByDescending (fun student -> student.MeanScore)
+        |> Array.sortBy (fun student -> student.Name)
         
 
     printfn $"Student count: {studentList.Length}"
