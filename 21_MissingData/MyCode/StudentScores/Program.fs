@@ -1,6 +1,13 @@
 // Learn more about F# at http://docs.microsoft.com/dotnet/fsharp
 
-open System.IO;
+open System
+open System.IO
+
+module Float =
+    let tryFromString s =
+        match s with
+        | "N/A" -> None
+        | _ -> Some (float s)
 
 type Student =
     {
@@ -20,7 +27,7 @@ module Student =
         let scores = 
             elements
             |> Array.skip 2
-            |> Array.map float
+            |> Array.choose Float.tryFromString
 
         let mean =
             scores
