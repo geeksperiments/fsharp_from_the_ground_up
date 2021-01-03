@@ -6,7 +6,7 @@ open System.IO
 module Float =
     let tryFromString s =
         match s with
-        | "N/A" -> None
+        | "N/A" -> Some (50.0)
         | _ -> Some (float s)
 
 type Student =
