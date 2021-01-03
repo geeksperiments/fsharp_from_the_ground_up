@@ -6,8 +6,13 @@ open System.IO
 module Float =
     let tryFromString s =
         match s with
-        | "N/A" -> Some (50.0)
+        | "N/A" -> None
         | _ -> Some (float s)
+
+    let tryFromStringOr50 s = 
+        s 
+        |> tryFromString
+        |> Option.defaultValue 50.0
 
 type Student =
     {
@@ -27,7 +32,7 @@ module Student =
         let scores = 
             elements
             |> Array.skip 2
-            |> Array.choose Float.tryFromString
+            |> Array.map Float.tryFromStringOr50
 
         let mean =
             scores
