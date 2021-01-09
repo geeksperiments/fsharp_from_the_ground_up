@@ -14,16 +14,12 @@ module Student =
         let elements = s.Split(',')
 
         match elements with
-        | [| surname; givenName |] -> 
-            {|
-                Surname = surname
-                GivenName = givenName
-            |}
-        | [| surname;|] -> 
-            {|
-                Surname = surname
-                GivenName = "(None)"
-            |}
+        | [| surname; givenName |] ->
+            {| Surname = surname
+               GivenName = givenName |}
+        | [| surname |] ->
+            {| Surname = surname
+               GivenName = "(None)" |}
         | _ -> raise (System.FormatException($"Invalid name format: \"{s}\""))
 
     let fromString (s: string) =
