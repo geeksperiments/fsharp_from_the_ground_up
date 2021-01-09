@@ -15,6 +15,7 @@ module Student =
 
         match elements with
         | [| surname; givenName |] -> surname, givenName
+        | [| surname;|] -> surname, "(None)"
         | _ -> raise (System.FormatException($"Invalid name format: \"{s}\""))
 
     let fromString (s: string) =
