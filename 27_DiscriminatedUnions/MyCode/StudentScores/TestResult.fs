@@ -13,9 +13,9 @@ module TestResult =
         | "E" -> Excused
         | _ -> s |> float |> Scored
 
-    let effectiveScore (testResult: TestResult) = 
+    let tryEffectiveScore (testResult: TestResult) = 
         match testResult with
-        | Absent -> 0.0
-        | Excused -> 50.0
-        | Scored score -> score 
+        | Absent -> Some 0.0
+        | Excused -> None
+        | Scored score -> Some score 
 
