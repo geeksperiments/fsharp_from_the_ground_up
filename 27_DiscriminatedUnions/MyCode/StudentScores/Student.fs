@@ -24,7 +24,7 @@ module Student =
         let scores =
             elements
             |> Array.skip 2
-            |> Array.map (Float.tryFromStringOr 50.0)
+            |> Array.map (TestResult.fromString >> TestResult.effectiveScore)
 
         let mean = scores |> Array.average
 
