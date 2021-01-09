@@ -24,7 +24,9 @@ module Student =
         let scores =
             elements
             |> Array.skip 2
-            |> Array.map (TestResult.fromString >> TestResult.effectiveScore)
+            |> Array.map TestResult.fromString 
+            |> Array.filter (fun r -> r <> Excused)
+            |> Array.map TestResult.effectiveScore
 
         let mean = scores |> Array.average
 
