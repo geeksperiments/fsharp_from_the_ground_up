@@ -21,7 +21,7 @@ let main argv =
                 1
             | :? IOException as e ->
                 printfn $"Error: {e.Message}"
-                printfn "The file is inaccessible."
+                printfn "The file is open in another program, please close it."
                 1
         else
             printfn $"File not found: {filePath}"
