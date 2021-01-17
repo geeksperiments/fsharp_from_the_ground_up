@@ -3,8 +3,8 @@ namespace StudentScores
 module Float =
     let tryFromString s =
         match s with
-        | "N/A" -> None
-        | _ -> Some(float s)
+        | "N/A" -> Nothing
+        | _ -> Something (float s)
 
     let tryFromStringOr defaultValue =
-        tryFromString >> Option.defaultValue defaultValue
+        tryFromString >> Optional.defaultValue defaultValue
