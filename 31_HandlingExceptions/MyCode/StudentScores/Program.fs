@@ -14,7 +14,7 @@ let main argv =
             try
                 Summary.summarize filePath
                 0
-            with 
+            with
             | :? FormatException as e ->
                 printfn $"Error: {e.Message}"
                 printfn "The file was not in the expected format."
@@ -22,10 +22,13 @@ let main argv =
             | :? IOException as e ->
                 printfn $"Error: {e.Message}"
                 printfn "The file is open in another program, please close it."
-                1
+                2
+            | e ->
+                printfn $"Unexpected error: {e.Message}"
+                3
         else
             printfn $"File not found: {filePath}"
-            2
+            4
     else
         printfn "Please specify a file"
-        3
+        5
