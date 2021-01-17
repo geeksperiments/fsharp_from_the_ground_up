@@ -1,15 +1,9 @@
 namespace GenericPoints
- 
-type Point = 
-    {
-        X : float
-        Y : float
-    }
- 
+
+type Point<'T> = { X: 'T; Y: 'T }
+
 module Point =
- 
-    let moveBy (dx : float) (dy : float) (p : Point) =
-        {
-            X = p.X + dx
-            Y = p.Y + dy
-        }
+
+    let inline moveBy (dx: 'T) (dy: 'T) (p: Point<'T>) = { X = p.X + dx; Y = p.Y + dy }
+
+    let inline scaleBy (factor: 'T) (p: Point<'T>) = { X = p.X * factor; Y = p.Y * factor }
