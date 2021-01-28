@@ -77,7 +77,7 @@ let main argv =
         |> Array.groupBy (fun b -> b.StudColumns * b.StudRows)
 
     groupedByStudCount
-    |> Array.sortBy fst
+    |> Array.sortByDescending fst
     |> Array.iter
         (fun (studCount, bricks) ->
             printfn "%i stud:" studCount
