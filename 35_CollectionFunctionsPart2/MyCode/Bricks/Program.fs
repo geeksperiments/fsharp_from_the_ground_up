@@ -79,7 +79,7 @@ let main argv =
     groupedByStudCount
     |> Array.iter
         (fun (studCount, bricks) ->
-            printfn "%i stud:" (studCount)
+            printfn "%i stud:" studCount
             bricks |> Array.iter Brick.printConsole
             printfn "")
 
