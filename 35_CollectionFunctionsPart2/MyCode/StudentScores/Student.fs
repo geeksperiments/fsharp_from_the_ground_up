@@ -55,6 +55,7 @@ module Student =
     let printGroupSummary(surname : string) (students : Student[]) = 
         printfn "%s" (surname.ToUpperInvariant())
         students
+        |> Array.sortBy (fun student -> student.GivenName)
         |> Array.iter (fun student ->
             printfn "\t%20s\t%s\t%0.1f\t%0.1f\t%0.1f" 
                 student.GivenName student.Id
