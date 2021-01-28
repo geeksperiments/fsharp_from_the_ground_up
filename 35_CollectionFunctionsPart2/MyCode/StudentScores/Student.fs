@@ -51,3 +51,11 @@ module Student =
             $"{student.Surname}, {student.GivenName}	{student.Id}	%0.1f{student.MeanScore}	%0.1f{student.MinScore}	%0.1f{
                                                                                                                              student.MaxScore
             }"
+
+    let printGroupSummary(surname : string) (students : Student[]) = 
+        printfn "%s" (surname.ToUpperInvariant())
+        students
+        |> Array.iter (fun student ->
+            printfn "\t%20s\t%s\t%0.1f\t%0.1f\t%0.1f" 
+                student.GivenName student.Id
+                student.MeanScore student.MinScore student.MaxScore)
