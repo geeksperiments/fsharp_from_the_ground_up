@@ -5,6 +5,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ConsolePrompt.fs" />
+    <Compile Include="Person.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 </Project>
