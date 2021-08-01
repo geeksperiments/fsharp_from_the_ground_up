@@ -29,7 +29,7 @@ module Student =
  
     // Or better still, use an IReadOnlyDictionary:
     // let fromString (schoolCodes : IReadOnlyDictionary<int, string>) (s : string) =
-    let fromString (schoolCodes : Map<string, string>) (s : string) =
+    let fromString (schoolCodes : Map<_, _>) (s : string) =
         let elements = s.Split('\t')
         let name = elements.[0] |> nameParts
         let id = elements.[1]
