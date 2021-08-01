@@ -18,9 +18,8 @@ type ConsolePrompt (message : string, maxTries: int) =
         and set(fg, bg) = 
             if (fg = bg) then
                 raise <| ArgumentException("Foreground and background must be different")
-            else
-                foreground <- fg
-                background <- bg
+            foreground <- fg
+            background <- bg
 
     member this.GetValue() =
         tryCount <- tryCount + 1
